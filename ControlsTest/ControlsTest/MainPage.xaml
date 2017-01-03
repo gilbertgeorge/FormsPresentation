@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ControlsTest"
+             x:Class="ControlsTest.MainPage"
+             Title="Controls Test">
+
+    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+        <StackLayout Orientation="Vertical" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" Padding="0,100,0,0">
+
+            <Label Text="Activity Indicator" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <ActivityIndicator HorizontalOptions="Fill" VerticalOptions="StartAndExpand"
+                               Margin="0,0,0,20" IsVisible="True" IsRunning="True" IsEnabled="True" />
+
+            <Label Text="BoxView" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <BoxView HorizontalOptions="Fill" VerticalOptions="StartAndExpand" HeightRequest="100"
+                     BackgroundColor="Red" />
+
+            <Label Text="Button" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <Button Text="Press Me" HorizontalOptions="Start" VerticalOptions="Start" WidthRequest="300" BackgroundColor="#cccccc"
+                    TextColor="White" />
+
+            <Label Text="DatePicker" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <DatePicker HorizontalOptions="Center" />
+
+            <Label Text="Editor" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <Editor HeightRequest="300" VerticalOptions="Start" WidthRequest="300" HorizontalOptions="Start" />
+
+            <Label Text="Entry" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <Entry WidthRequest="300" HorizontalOptions="Start" VerticalOptions="StartAndExpand" />
+
+            <Label Text="Image" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <Image Source="http://www.geek.com/wp-content/uploads/2010/07/starcraft2.jpg" WidthRequest="400" HorizontalOptions="Start"
+                   VerticalOptions="StartAndExpand" />
+
+            <Label Text="ListView" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <ListView x:Name="listView" HeightRequest="150" VerticalOptions="Start" WidthRequest="100" HorizontalOptions="Fill"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Padding="7" VerticalOptions="Fill" HorizontalOptions="Fill">
+                                <Label Text="{Binding Name}" VerticalOptions="Start" HorizontalOptions="Fill" FontSize="Small" TextColor="Black" FontAttributes="Bold" />
+                                <Label Text="{Binding Age, StringFormat='Age: {0}'}" VerticalOptions="Start" HorizontalOptions="Fill" FontSize="Micro" FontAttributes="Italic" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label Text="Picker" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <Picker HorizontalOptions="Start" x:Name="picker" Title="Pick your faction!!" />
+
+            <Label Text="ProgressBar" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <ProgressBar WidthRequest="200" HorizontalOptions="Start" VerticalOptions="Start" Progress="0.6" />
+
+            <Label Text="SearchBar" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <SearchBar WidthRequest="400" HorizontalOptions="Start" VerticalOptions="StartAndExpand" />
+
+            <Label Text="Slider" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <Slider Minimum="0" Maximum="100" WidthRequest="200" HorizontalOptions="Start" VerticalOptions="Start" />
+
+            <Label Text="Stepper" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <Stepper />
+
+            <Label Text="Switch" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <Switch />
+
+            <Label Text="TableView" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <TableView HeightRequest="100" HorizontalOptions="Fill" />
+
+            <Label Text="TimePicker" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <TimePicker HorizontalOptions="Start" />
+
+            <Label Text="WebView" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TextColor="Black"
+                   FontSize="Medium" />
+            <WebView HorizontalOptions="Fill" WidthRequest="500" Source="http://www.google.com" HeightRequest="500"
+                     VerticalOptions="StartAndExpand" />
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		xmlns:local="clr-namespace:NavigationTest"
+		x:Class="NavigationTest.NavigationTestPage">
+	<StackLayout Orientation="Vertical" HorizontalOptions="Fill" VerticalOptions="Fill">
+		<Button Text="Show Page 2 (Modal)" x:Name="modalButton" FontSize="Medium" />
+		<Button Text="Show Page 2 (Push)" x:Name="pushButton" FontSize="Medium" />
+	</StackLayout>
+</ContentPage>
