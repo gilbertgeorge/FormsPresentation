@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UnitLookup.Pages.UnitDetailPage"
+             xmlns:core="clr-namespace:UnitLookup.Core"
+             xmlns:controls="clr-namespace:UnitLookup.Controls">
+
+    <Grid Padding="5" HorizontalOptions="Fill" VerticalOptions="StartAndExpand" x:Name="mainLayout">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ActivityIndicator x:Name="loadingIndicator" HorizontalOptions="Center" VerticalOptions="Start"
+                           IsEnabled="True" IsRunning="True" Grid.ColumnSpan="2" />
+
+        <Label Text="{Binding Name}" Grid.ColumnSpan="2" FontSize="Medium" Grid.Column="0" Grid.Row="1"
+               VerticalOptions="Center" />
+        <Image HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand" x:Name="factionImage"
+               Grid.Row="1" Grid.Column="1" HeightRequest="70" />
+
+        <Label Text="Mineral Cost" Grid.Column="0" FontSize="Small" FontAttributes="Bold" Grid.Row="2" />
+        <Label Text="{Binding MineralCost}" FontSize="Small" Grid.Row="2" Grid.Column="1" />
+
+        <Label Text="Gas Cost" Grid.Column="0" FontSize="Small" FontAttributes="Bold" Grid.Row="3" />
+        <Label Text="{Binding GasCost}" FontSize="Small" Grid.Row="3" Grid.Column="1" />
+
+        <Label Text="Hit Points" Grid.Column="0" FontSize="Small" FontAttributes="Bold" Grid.Row="4" />
+        <Label Text="{Binding HitPoints}" FontSize="Small" Grid.Row="4" Grid.Column="1" />
+
+        <Label Text="Unit Type" Grid.Column="0" FontSize="Small" FontAttributes="Bold" Grid.Row="5" />
+        <Label Text="{Binding UnitType}" FontSize="Small" Grid.Row="5" Grid.Column="1" />
+
+        <Label Text="Produced By" Grid.Column="0" FontSize="Small" FontAttributes="Bold" Grid.Row="6" />
+        <Label Text="{Binding ProducingUnitName}" FontSize="Small" Grid.Row="6" Grid.Column="1" />
+
+        <Label Text="Requires" Grid.Column="0" Grid.ColumnSpan="2" FontAttributes="Bold" Grid.Row="7" />
+        <StackLayout Orientation="Vertical" Padding="5,2,2,2" HorizontalOptions="Fill" VerticalOptions="StartAndExpand"
+                     Grid.ColumnSpan="2" Grid.Row="8">
+            <Label Text="No Dependencies" HorizontalOptions="Fill" VerticalOptions="Start" FontAttributes="Italic"
+                   IsVisible="{Binding Converter={StaticResource InvertBoolValueConveter}, Path=HasDependencies}"/>
+            <ListView x:Name="requiresList" HorizontalOptions="Fill" VerticalOptions="StartAndExpand"
+                      IsVisible="{Binding Path=HasDependencies}" ItemsSource="{Binding UnitDependencies}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="7,2,2,2">
+                                <controls:UnitLabel Text="{Binding Name}" UnitType="{Binding UnitType}" FontSize="Small" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </Grid>
+    
+</ContentPage>
